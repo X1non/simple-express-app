@@ -1,11 +1,12 @@
 const express = require('express')
 const app = express()
-const port = process.env.HOST || 80
+const host = process.env.HOST || '0.0.0.0'
+const port = process.env.PORT || 80
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(port, host, () => {
+  console.log(`Example app listening on http://${host}:${port}`)
 })
